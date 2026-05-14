@@ -3,85 +3,241 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <title>XZuyaX's HUB</title>
+  <title>Contact Me</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    .section { display: none; }
-    .section.active { display: block; }
-    nav a.active { color: #00ccff; font-weight: bold; }
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#0a0a0a;
+      color:white;
+      overflow:hidden;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+    }
+
+    .bg{
+      position:absolute;
+      inset:0;
+      background:url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      filter:blur(12px) brightness(.35);
+      transform:scale(1.1);
+    }
+
+    .card{
+      position:relative;
+      width:350px;
+      backdrop-filter:blur(18px);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 10px 40px rgba(0,0,0,.4);
+      animation:fade .5s ease;
+    }
+
+    .banner{
+      height:130px;
+      background:url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop') center/cover;
+    }
+
+    .content{
+      padding:70px 24px 24px;
+      text-align:center;
+      position:relative;
+    }
+
+    .avatar{
+      width:100px;
+      height:100px;
+      border-radius:50%;
+      border:5px solid #111;
+      position:absolute;
+      top:-50px;
+      left:50%;
+      transform:translateX(-50%);
+      object-fit:cover;
+      box-shadow:0 0 25px rgba(0,0,0,.4);
+    }
+
+    h1{
+      font-size:26px;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
+    .tag{
+      color:#b3b3b3;
+      font-size:14px;
+      margin-bottom:18px;
+    }
+
+    .desc{
+      font-size:14px;
+      color:#d6d6d6;
+      line-height:1.6;
+      margin-bottom:22px;
+    }
+
+    .btn{
+      width:100%;
+      border:none;
+      padding:15px;
+      border-radius:14px;
+      font-size:15px;
+      font-weight:600;
+      cursor:pointer;
+      transition:.2s;
+      margin-top:12px;
+    }
+
+    .discord{
+      background:#5865F2;
+      color:white;
+    }
+
+    .discord:hover{
+      transform:translateY(-2px);
+      opacity:.9;
+    }
+
+    .copy{
+      background:rgba(255,255,255,.08);
+      color:white;
+    }
+
+    .copy:hover{
+      background:rgba(255,255,255,.12);
+    }
+
+    .copied{
+      margin-top:14px;
+      color:#7dff9b;
+      font-size:13px;
+      display:none;
+    }
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .footer{
+      margin-top:22px;
+      font-size:12px;
+      color:#8d8d8d;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <a href="#" class="logo">XZuyaX's HUB</a>
-    <nav>
-      <a href="#" class="active">Home</a>
-      <a href="#script">Script</a>
-      <a href="#showcase">Showcase</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <!-- HOME SECTION -->
-  <section class="home" id="home">
-    <div class="home-img">
-      <img src="main.gif" alt="Foto Profil" />
-    </div>
-    <div class="home-content">
-      <h1>Hi, It's <span>XZuyaX</span></h1>
-      <h3 class="typing-text">I'm a <span>Roblox Scripter</span></h3>
-      <p>Welcome to my Website.</p>
-      <div class="social-icons">
-        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="#"><i class="fa-brands fa-github"></i></a>
-        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+  <div class="bg"></div>
+
+  <div class="card">
+
+    <div class="banner"></div>
+
+    <div class="content">
+
+      <!-- GANTI FOTO PROFILE -->
+      <img class="avatar" src="https://i.imgur.com/2DhmtJ4.jpeg">
+
+      <!-- GANTI NAMA -->
+      <h1>ZUYA</h1>
+
+      <!-- GANTI USERNAME -->
+      <div class="tag">@zuya</div>
+
+      <div class="desc">
+        Click the button below to contact me on Discord.<br>
+        Your message template will automatically be copied.
       </div>
-      <a href="#" class="btn">Donate Me!</a>
-    </div>
-  </section>
 
-  <!-- SCRIPT -->
-  <section id="script" class="section">
-    <div class="content">
-      <h2>My Roblox Scripts</h2>
-      <ul>
-        <li><strong>Blade Ball GUI</strong> - <a href="#">Download</a></li>
-        <li><strong>Auto Farm</strong> - <a href="#">Download</a></li>
-        <li><strong>Teleport Script</strong> - <a href="#">Download</a></li>
-      </ul>
-    </div>
-  </section>
+      <button class="btn discord" onclick="openDiscord()">
+        Open Discord DM
+      </button>
 
-  <!-- SHOWCASE -->
-  <section id="showcase" class="section">
-    <div class="content">
-      <h2>Script Showcase</h2>
-      <p>Check out some cool stuff I’ve built!</p>
-      <img src="showcase1.gif" alt="Showcase 1" width="300" />
-      <img src="showcase2.gif" alt="Showcase 2" width="300" />
-    </div>
-  </section>
+      <button class="btn copy" onclick="copyMessage()">
+        Copy Message
+      </button>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="content">
-      <h2>Contact Me</h2>
-      <p>Email: example@email.com</p>
-      <p>Discord: XZuyaX#1234</p>
-      <p>Instagram: <a href="#">@xzuya.dev</a></p>
+      <div class="copied" id="copied">
+        Message copied successfully.
+      </div>
+
+      <div class="footer">
+        github.io • discord contact page
+      </div>
+
     </div>
-  </section>
+  </div>
 
   <script>
-    function showSection(id, el) {
-      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
 
-      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-      el.classList.add('active');
+    // GANTI USER ID DISCORD
+    const discordUser = "123456789012345678";
+
+    // GANTI TEMPLATE PESAN
+    const message =
+`Halo bang, saya mau order.
+
+Username:
+Keperluan:
+Payment:`;
+
+
+    async function copyMessage(){
+      await navigator.clipboard.writeText(message);
+
+      const copied = document.getElementById("copied");
+      copied.style.display = "block";
+
+      setTimeout(()=>{
+        copied.style.display = "none";
+      },2000);
     }
+
+    async function openDiscord(){
+
+      await navigator.clipboard.writeText(message);
+
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if(isMobile){
+        window.location.href =
+          `discord://-/users/${discordUser}`;
+
+        setTimeout(()=>{
+          window.location.href =
+            `https://discord.com/users/${discordUser}`;
+        },1000);
+
+      }else{
+        window.open(
+          `https://discord.com/users/${discordUser}`,
+          "_blank"
+        );
+      }
+    }
+
   </script>
+
 </body>
 </html>
