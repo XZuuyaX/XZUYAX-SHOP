@@ -1,201 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Me</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>ZUYA</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#050505;
+    color:white;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+/* BACKGROUND */
+
+.bg{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+    url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop')
+    center/cover no-repeat;
+
+    transform:scale(1.1);
+    filter:blur(8px);
+}
+
+.particles{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
+
+.particles span{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    opacity:.25;
+    animation:float linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
     }
-
-    body{
-      font-family:'Inter',sans-serif;
-      background:#0a0a0a;
-      color:white;
-      overflow:hidden;
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      position:relative;
+    to{
+        transform:translateY(-120vh);
     }
+}
 
-    .bg{
-      position:absolute;
-      inset:0;
-      background:url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-      filter:blur(12px) brightness(.35);
-      transform:scale(1.1);
-    }
+/* CARD */
 
-    .card{
-      position:relative;
-      width:350px;
-      backdrop-filter:blur(18px);
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:0 10px 40px rgba(0,0,0,.4);
-      animation:fade .5s ease;
-    }
+.card{
+    position:relative;
+    width:360px;
+    border-radius:28px;
+    overflow:hidden;
 
-    .banner{
-      height:130px;
-      background:url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop') center/cover;
-    }
+    background:rgba(255,255,255,.05);
 
-    .content{
-      padding:70px 24px 24px;
-      text-align:center;
-      position:relative;
-    }
+    border:1px solid rgba(255,255,255,.08);
 
-    .avatar{
-      width:100px;
-      height:100px;
-      border-radius:50%;
-      border:5px solid #111;
-      position:absolute;
-      top:-50px;
-      left:50%;
-      transform:translateX(-50%);
-      object-fit:cover;
-      box-shadow:0 0 25px rgba(0,0,0,.4);
-    }
+    backdrop-filter:blur(20px);
 
-    h1{
-      font-size:26px;
-      font-weight:700;
-      margin-bottom:6px;
-    }
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.45),
+    0 0 80px rgba(88,101,242,.15);
 
-    .tag{
-      color:#b3b3b3;
-      font-size:14px;
-      margin-bottom:18px;
-    }
+    animation:cardIn .8s ease;
+}
 
-    .desc{
-      font-size:14px;
-      color:#d6d6d6;
-      line-height:1.6;
-      margin-bottom:22px;
-    }
-
-    .btn{
-      width:100%;
-      border:none;
-      padding:15px;
-      border-radius:14px;
-      font-size:15px;
-      font-weight:600;
-      cursor:pointer;
-      transition:.2s;
-      margin-top:12px;
-    }
-
-    .discord{
-      background:#5865F2;
-      color:white;
-    }
-
-    .discord:hover{
-      transform:translateY(-2px);
-      opacity:.9;
-    }
-
-    .copy{
-      background:rgba(255,255,255,.08);
-      color:white;
-    }
-
-    .copy:hover{
-      background:rgba(255,255,255,.12);
-    }
-
-    .copied{
-      margin-top:14px;
-      color:#7dff9b;
-      font-size:13px;
-      display:none;
-    }
-
-    @keyframes fade{
-      from{
+@keyframes cardIn{
+    from{
         opacity:0;
-        transform:translateY(10px);
-      }
-      to{
+        transform:translateY(30px) scale(.95);
+    }
+    to{
         opacity:1;
-        transform:translateY(0);
-      }
+        transform:translateY(0) scale(1);
     }
+}
 
-    .footer{
-      margin-top:22px;
-      font-size:12px;
-      color:#8d8d8d;
+.banner{
+    height:140px;
+    background:
+    url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop')
+    center/cover;
+}
+
+.content{
+    padding:75px 24px 24px;
+    position:relative;
+    text-align:center;
+}
+
+.avatar{
+    position:absolute;
+    width:105px;
+    height:105px;
+    border-radius:50%;
+    object-fit:cover;
+
+    left:50%;
+    top:-52px;
+
+    transform:translateX(-50%);
+
+    border:5px solid #0b0b0b;
+
+    box-shadow:
+    0 0 30px rgba(88,101,242,.45);
+
+    animation:pulse 3s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        box-shadow:0 0 20px rgba(88,101,242,.3);
     }
-  </style>
+    50%{
+        box-shadow:0 0 45px rgba(88,101,242,.7);
+    }
+    100%{
+        box-shadow:0 0 20px rgba(88,101,242,.3);
+    }
+}
+
+h1{
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+.tag{
+    margin-top:5px;
+    color:#b8b8b8;
+    font-size:14px;
+}
+
+.badge{
+    margin-top:14px;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    background:rgba(88,101,242,.15);
+    border:1px solid rgba(88,101,242,.35);
+
+    padding:8px 14px;
+    border-radius:999px;
+
+    font-size:13px;
+    color:#d8ddff;
+}
+
+.desc{
+    margin-top:20px;
+    color:#d3d3d3;
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* BUTTONS */
+
+.btns{
+    margin-top:24px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+button{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.btn{
+    height:50px;
+    border-radius:16px;
+
+    font-weight:700;
+    font-size:15px;
+}
+
+.discord{
+    background:#5865F2;
+    color:white;
+
+    box-shadow:
+    0 10px 25px rgba(88,101,242,.3);
+}
+
+.discord:hover{
+    transform:translateY(-3px);
+}
+
+.copy{
+    background:rgba(255,255,255,.07);
+    color:white;
+}
+
+.copy:hover{
+    background:rgba(255,255,255,.12);
+}
+
+.music{
+    position:absolute;
+    top:18px;
+    right:18px;
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+    color:white;
+
+    font-size:16px;
+}
+
+.music:hover{
+    background:rgba(255,255,255,.15);
+}
+
+.status{
+    margin-top:18px;
+    font-size:13px;
+    color:#8dffae;
+    display:none;
+}
+
+.footer{
+    margin-top:22px;
+    font-size:12px;
+    color:#8f8f8f;
+}
+
+</style>
 </head>
 <body>
 
-  <div class="bg"></div>
+<div class="bg"></div>
 
-  <div class="card">
+<div class="particles" id="particles"></div>
+
+<div class="card">
+
+    <button class="music" onclick="toggleMusic()">
+        ♫
+    </button>
 
     <div class="banner"></div>
 
     <div class="content">
 
-      <!-- GANTI FOTO PROFILE -->
-      <img class="avatar" src="https://i.imgur.com/2DhmtJ4.jpeg">
+        <!-- FOTO PROFILE -->
+        <img class="avatar"
+        src="https://i.imgur.com/2DhmtJ4.jpeg">
 
-      <!-- GANTI NAMA -->
-      <h1>ZUYA</h1>
+        <!-- NAMA -->
+        <h1>ZUYA</h1>
 
-      <!-- GANTI USERNAME -->
-      <div class="tag">@zuya</div>
+        <!-- USERNAME -->
+        <div class="tag">@zuya</div>
 
-      <div class="desc">
-        Click the button below to contact me on Discord.<br>
-        Your message template will automatically be copied.
-      </div>
+        <div class="badge">
+            ● Discord Contact
+        </div>
 
-      <button class="btn discord" onclick="openDiscord()">
-        Open Discord DM
-      </button>
+        <div class="desc">
+            Open my Discord profile instantly.<br>
+            Your message template will be copied automatically.
+        </div>
 
-      <button class="btn copy" onclick="copyMessage()">
-        Copy Message
-      </button>
+        <div class="btns">
 
-      <div class="copied" id="copied">
-        Message copied successfully.
-      </div>
+            <button class="btn discord"
+            onclick="openDiscord()">
+                Open Discord DM
+            </button>
 
-      <div class="footer">
-        github.io • discord contact page
-      </div>
+            <button class="btn copy"
+            onclick="copyMessage()">
+                Copy Message
+            </button>
+
+        </div>
+
+        <div class="status" id="status">
+            Message copied successfully.
+        </div>
+
+        <div class="footer">
+            github.io • made by zuya
+        </div>
 
     </div>
-  </div>
+</div>
 
-  <script>
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+    <!-- GANTI LINK MUSIC -->
+    <source src="https://files.catbox.moe/6r0qfj.mp3" type="audio/mpeg">
+</audio>
 
-    // GANTI USER ID DISCORD
-    const discordUser = "123456789012345678";
+<script>
 
-    // GANTI TEMPLATE PESAN
-    const message =
+/* =========================
+   DISCORD CONFIG
+========================= */
+
+// GANTI USER ID
+const discordUser = "123456789012345678";
+
+// TEMPLATE PESAN
+const message =
 `Halo bang, saya mau order.
 
 Username:
@@ -203,41 +344,136 @@ Keperluan:
 Payment:`;
 
 
-    async function copyMessage(){
-      await navigator.clipboard.writeText(message);
+/* =========================
+   PARTICLES
+========================= */
 
-      const copied = document.getElementById("copied");
-      copied.style.display = "block";
+const particles =
+document.getElementById("particles");
 
-      setTimeout(()=>{
-        copied.style.display = "none";
-      },2000);
-    }
+for(let i=0;i<50;i++){
 
-    async function openDiscord(){
+    const span =
+    document.createElement("span");
 
-      await navigator.clipboard.writeText(message);
+    span.style.left =
+    Math.random()*100+"%";
 
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    span.style.animationDuration =
+    (Math.random()*10+8)+"s";
 
-      if(isMobile){
+    span.style.animationDelay =
+    Math.random()*5+"s";
+
+    particles.appendChild(span);
+}
+
+/* =========================
+   COPY MESSAGE
+========================= */
+
+async function copyMessage(){
+
+    await navigator.clipboard
+    .writeText(message);
+
+    showStatus();
+}
+
+/* =========================
+   OPEN DISCORD
+========================= */
+
+async function openDiscord(){
+
+    await navigator.clipboard
+    .writeText(message);
+
+    showStatus();
+
+    const isMobile =
+    /Android|iPhone|iPad|iPod/i
+    .test(navigator.userAgent);
+
+    if(isMobile){
+
         window.location.href =
-          `discord://-/users/${discordUser}`;
+        `discord://-/users/${discordUser}`;
 
         setTimeout(()=>{
-          window.location.href =
+            window.location.href =
             `https://discord.com/users/${discordUser}`;
         },1000);
 
-      }else{
+    }else{
+
         window.open(
-          `https://discord.com/users/${discordUser}`,
-          "_blank"
+            `https://discord.com/users/${discordUser}`,
+            "_blank"
         );
-      }
+    }
+}
+
+/* =========================
+   STATUS
+========================= */
+
+function showStatus(){
+
+    const status =
+    document.getElementById("status");
+
+    status.style.display = "block";
+
+    setTimeout(()=>{
+        status.style.display = "none";
+    },2000);
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+const music =
+document.getElementById("bgMusic");
+
+let playing = false;
+
+function toggleMusic(){
+
+    if(!playing){
+
+        music.volume = 0.5;
+        music.play();
+
+        playing = true;
+
+    }else{
+
+        music.pause();
+
+        playing = false;
+    }
+}
+
+/* AUTOPLAY TRY */
+
+window.addEventListener("click",()=>{
+
+    if(!playing){
+
+        music.volume = 0.5;
+
+        music.play()
+        .then(()=>{
+            playing = true;
+        })
+        .catch(()=>{});
     }
 
-  </script>
+},{ once:true });
+
+</script>
 
 </body>
 </html>
