@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>QRIS Payment</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<div class="payment-card">
+
+<h1>
+QRIS Payment
+</h1>
+
+<img src="assets/qris.png"
+class="qr">
+
+<p>
+Upload payment proof below
+</p>
+
+<input type="file"
+id="proof">
+
+<button onclick="submitProof()">
+Submit QRIS Receipt
+</button>
+
+</div>
+
+<script>
+
+async function submitProof(){
+
+const file =
+document.getElementById(
+"proof"
+).files[0];
+
+if(!file){
+
+alert(
+"Upload receipt first"
+);
+
+return;
+
+}
+
+const formData =
+new FormData();
+
+formData.append(
+"file",
+file
+);
+
+formData.append(
+"buyer",
+"Anonymous"
+);
+
+formData.append(
+"payment",
+"QRIS"
+);
+
+await fetch(
+"https://YOUR-REPLIT.replit.app/upload",
+{
+method:"POST",
+body:formData
+}
+);
+
+window.location.href =
+"success.html";
+
+}
+
+</script>
+
+</body>
+</html>
