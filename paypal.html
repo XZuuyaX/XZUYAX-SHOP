@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>PayPal Payment</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<div class="payment-card">
+
+<h1>
+PayPal Payment
+</h1>
+
+<p>
+Click button below to pay using PayPal.
+After payment, upload your receipt.
+</p>
+
+<button onclick="openPaypal()">
+Open PayPal
+</button>
+
+<input type="file"
+id="proof">
+
+<button onclick="submitPaypal()">
+Submit PayPal Receipt
+</button>
+
+</div>
+
+<script>
+
+function openPaypal(){
+
+window.open(
+"https://paypal.me/XZuyaX"
+);
+
+}
+
+async function submitPaypal(){
+
+const file =
+document.getElementById(
+"proof"
+).files[0];
+
+if(!file){
+
+alert(
+"Upload receipt first"
+);
+
+return;
+
+}
+
+const formData =
+new FormData();
+
+formData.append(
+"file",
+file
+);
+
+formData.append(
+"buyer",
+"Anonymous"
+);
+
+formData.append(
+"payment",
+"PayPal"
+);
+
+await fetch(
+"https://YOUR-REPLIT.replit.app/upload",
+{
+method:"POST",
+body:formData
+}
+);
+
+window.location.href =
+"success.html";
+
+}
+
+</script>
+
+</body>
+</html>
