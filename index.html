@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zuya</title>
+<title>Zuya Store</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,29 +18,31 @@
     box-sizing:border-box;
 }
 
-body{
-    font-family:'Inter',sans-serif;
-    overflow-x:hidden;
-    color:white;
-    background:#050816;
-    min-height:100vh;
-    position:relative;
+html{
+    scroll-behavior:smooth;
 }
 
-/* ======================
-   BACKGROUND
-====================== */
+body{
+    font-family:'Inter',sans-serif;
+    background:#060816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* =========================
+BACKGROUND
+========================= */
 
 .bg{
     position:fixed;
     inset:0;
 
     background:
-    linear-gradient(rgba(7,10,22,.55),rgba(5,7,18,.88)),
+    linear-gradient(rgba(4,8,20,.75),rgba(4,8,20,.92)),
     url('https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?q=80&w=1974&auto=format&fit=crop')
     center/cover no-repeat;
 
-    filter:blur(3px);
+    filter:blur(4px);
     transform:scale(1.05);
 
     z-index:-3;
@@ -72,44 +74,49 @@ body{
     }
 }
 
-/* ======================
-   MAIN
-====================== */
+/* =========================
+MAIN
+========================= */
 
 .container{
     width:100%;
-    max-width:1100px;
+    max-width:1200px;
     margin:auto;
-    padding:40px 20px 70px;
+    padding:30px 20px 80px;
 }
 
-.profile{
+/* =========================
+HEADER
+========================= */
+
+.hero{
+
     backdrop-filter:blur(18px);
 
     background:
     linear-gradient(
         180deg,
-        rgba(255,255,255,.08),
+        rgba(255,255,255,.07),
         rgba(255,255,255,.04)
     );
 
     border:1px solid rgba(255,255,255,.08);
 
-    border-radius:32px;
+    border-radius:34px;
 
     overflow:hidden;
 
     box-shadow:
-    0 10px 50px rgba(0,0,0,.45),
-    0 0 80px rgba(103,114,255,.15);
+    0 10px 60px rgba(0,0,0,.45),
+    0 0 100px rgba(100,120,255,.12);
 
-    animation:fadeIn .8s ease;
+    animation:fade .8s ease;
 }
 
-@keyframes fadeIn{
+@keyframes fade{
     from{
         opacity:0;
-        transform:translateY(30px);
+        transform:translateY(20px);
     }
     to{
         opacity:1;
@@ -118,22 +125,22 @@ body{
 }
 
 .banner{
-    height:230px;
+    height:260px;
 
     background:
-    linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.5)),
+    linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.55)),
     url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop')
     center/cover;
 }
 
-.content{
-    padding:0 30px 35px;
+.hero-content{
+    padding:0 35px 40px;
     position:relative;
 }
 
 .avatar{
-    width:135px;
-    height:135px;
+    width:140px;
+    height:140px;
 
     border-radius:50%;
 
@@ -144,105 +151,163 @@ body{
     margin-top:-70px;
 
     box-shadow:
-    0 0 40px rgba(126,141,255,.45);
+    0 0 45px rgba(125,139,255,.5);
 
     animation:pulse 4s infinite;
 }
 
 @keyframes pulse{
     0%{
-        box-shadow:0 0 25px rgba(126,141,255,.25);
+        box-shadow:0 0 25px rgba(125,139,255,.25);
     }
     50%{
-        box-shadow:0 0 55px rgba(126,141,255,.75);
+        box-shadow:0 0 60px rgba(125,139,255,.8);
     }
     100%{
-        box-shadow:0 0 25px rgba(126,141,255,.25);
+        box-shadow:0 0 25px rgba(125,139,255,.25);
     }
-}
-
-.top{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    flex-wrap:wrap;
-    gap:20px;
 }
 
 .name{
-    margin-top:18px;
-    font-size:36px;
+    margin-top:20px;
+    font-size:42px;
     font-weight:800;
 }
 
 .tag{
-    color:#c2c2c2;
     margin-top:6px;
+    color:#c6c6c6;
 }
 
 .bio{
-    margin-top:16px;
+    margin-top:18px;
     max-width:700px;
 
     line-height:1.8;
     color:#dddddd;
-    font-size:15px;
 }
 
 .stats{
+    margin-top:28px;
+
     display:flex;
-    gap:15px;
     flex-wrap:wrap;
-    margin-top:25px;
+    gap:15px;
 }
 
 .stat{
-    background:rgba(255,255,255,.06);
+    background:rgba(255,255,255,.05);
 
     border:1px solid rgba(255,255,255,.08);
 
-    padding:15px 18px;
+    padding:16px 18px;
 
-    border-radius:18px;
+    border-radius:20px;
 
-    min-width:170px;
+    min-width:180px;
 }
 
 .stat-title{
+    color:#b8b8b8;
     font-size:13px;
-    color:#bdbdbd;
 }
 
 .stat-value{
-    margin-top:8px;
-    font-size:22px;
+    margin-top:7px;
+    font-size:23px;
     font-weight:700;
 }
 
 .online{
-    color:#7bffae;
+    color:#7cffae;
 }
 
-.offline{
-    color:#ff8686;
+/* =========================
+SHOP
+========================= */
+
+.section-title{
+    margin-top:50px;
+    margin-bottom:20px;
+
+    font-size:32px;
+    font-weight:800;
 }
 
-/* ======================
-   BUTTONS
-====================== */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.03)
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:28px;
+
+    backdrop-filter:blur(14px);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:
+    0 10px 45px rgba(0,0,0,.35),
+    0 0 45px rgba(88,101,242,.15);
+}
+
+.card h2{
+    font-size:28px;
+}
+
+.price{
+    margin-top:15px;
+
+    font-size:42px;
+    font-weight:800;
+
+    color:#95a2ff;
+}
+
+.card p{
+    margin-top:16px;
+    color:#d7d7d7;
+    line-height:1.7;
+}
+
+.features{
+    margin-top:22px;
+}
+
+.features div{
+    margin-bottom:12px;
+    color:#ebebeb;
+}
+
+/* =========================
+BUTTONS
+========================= */
 
 .buttons{
-    margin-top:30px;
+    margin-top:24px;
 
     display:flex;
-    gap:15px;
-    flex-wrap:wrap;
+    flex-direction:column;
+    gap:12px;
 }
 
 .btn{
     height:52px;
-
-    padding:0 26px;
 
     border:none;
 
@@ -259,13 +324,10 @@ body{
 .discord{
     background:#5865F2;
     color:white;
-
-    box-shadow:
-    0 10px 30px rgba(88,101,242,.3);
 }
 
 .discord:hover{
-    transform:translateY(-3px);
+    transform:translateY(-2px);
 }
 
 .paypal{
@@ -274,48 +336,105 @@ body{
 }
 
 .paypal:hover{
-    transform:translateY(-3px);
+    transform:translateY(-2px);
 }
 
-.music{
-    background:rgba(255,255,255,.08);
-    color:white;
+.qris{
+    background:#1fdf64;
+    color:#08130d;
 }
 
-.music:hover{
-    background:rgba(255,255,255,.14);
+.qris:hover{
+    transform:translateY(-2px);
 }
 
-/* ======================
-   GUIDE
-====================== */
+/* =========================
+PAYMENT
+========================= */
 
-.guide{
-    margin-top:35px;
+.payment{
+    margin-top:55px;
 
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.03)
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:30px;
+
+    padding:35px;
+}
+
+.payment-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.pay-box{
     background:rgba(255,255,255,.05);
 
     border:1px solid rgba(255,255,255,.08);
 
     border-radius:24px;
 
-    padding:28px;
+    padding:25px;
 }
 
-.guide h2{
+.pay-box h3{
     font-size:24px;
-    margin-bottom:20px;
+}
+
+.pay-box p{
+    margin-top:12px;
+    color:#d7d7d7;
+    line-height:1.7;
+}
+
+.qr{
+    width:100%;
+    border-radius:20px;
+    margin-top:20px;
+}
+
+/* =========================
+GUIDE
+========================= */
+
+.guide{
+    margin-top:55px;
+}
+
+.steps{
+    display:grid;
+    gap:20px;
 }
 
 .step{
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.03)
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:26px;
+
+    padding:26px;
+
     display:flex;
-    gap:18px;
-    margin-bottom:22px;
+    gap:20px;
 }
 
-.num{
-    min-width:42px;
-    height:42px;
+.number{
+    min-width:50px;
+    height:50px;
 
     border-radius:50%;
 
@@ -326,49 +445,61 @@ body{
     justify-content:center;
 
     font-weight:800;
+    font-size:18px;
 }
 
 .step h3{
-    margin-bottom:7px;
+    margin-bottom:8px;
 }
 
 .step p{
-    color:#d3d3d3;
-    line-height:1.7;
+    color:#d8d8d8;
+    line-height:1.8;
 }
 
-/* ======================
-   TEMPLATE
-====================== */
+/* =========================
+TEMPLATE
+========================= */
 
 .template{
-    margin-top:30px;
+    margin-top:55px;
 
-    background:#0b1022;
+    background:#0d1225;
 
-    border-radius:18px;
+    border-radius:28px;
 
-    padding:22px;
+    border:1px solid rgba(255,255,255,.08);
 
-    border:1px solid rgba(255,255,255,.06);
+    padding:30px;
+}
+
+.template h2{
+    margin-bottom:18px;
 }
 
 .template pre{
     white-space:pre-wrap;
-    color:#dcdcdc;
-    line-height:1.7;
-    font-size:14px;
+    line-height:1.8;
+    color:#dddddd;
 }
 
-/* ======================
-   FOOTER
-====================== */
+/* =========================
+FOOTER
+========================= */
 
 .footer{
-    margin-top:28px;
+    margin-top:50px;
     text-align:center;
-    color:#8f8f8f;
+    color:#949494;
     font-size:13px;
+}
+
+@media(max-width:900px){
+
+.payment-grid{
+    grid-template-columns:1fr;
+}
+
 }
 
 </style>
@@ -381,321 +512,403 @@ body{
 
 <div class="container">
 
-    <div class="profile">
+<!-- HERO -->
 
-        <div class="banner"></div>
+<div class="hero">
 
-        <div class="content">
+<div class="banner"></div>
 
-            <div class="top">
+<div class="hero-content">
 
-                <div>
+<img class="avatar"
+src="https://i.imgur.com/2DhmtJ4.jpeg">
 
-                    <!-- PROFILE -->
-                    <img class="avatar"
-                    src="https://i.imgur.com/2DhmtJ4.jpeg">
+<div class="name">Zuya Store</div>
 
-                    <div class="name">Zuya</div>
+<div class="tag">@zuya</div>
 
-                    <div class="tag">@zuya</div>
+<div class="bio">
+Fantasy adventure themed script store ✦
+Premium Roblox scripts, private utilities,
+permanent keys, premium access, and more.
+</div>
 
-                    <div class="bio">
-                        Fantasy adventure vibes ✦ premium script seller ✦
-                        Roblox utilities & private tools.
-                        Contact me on Discord for permanent or premium key purchases.
-                    </div>
+<div class="stats">
 
-                </div>
+<div class="stat">
+<div class="stat-title">
+Discord Status
+</div>
 
-            </div>
+<div class="stat-value online">
+● Online
+</div>
+</div>
 
-            <!-- STATS -->
+<div class="stat">
+<div class="stat-title">
+Payment Methods
+</div>
 
-            <div class="stats">
+<div class="stat-value">
+PayPal / QRIS
+</div>
+</div>
 
-                <div class="stat">
-                    <div class="stat-title">
-                        Discord Status
-                    </div>
+<div class="stat">
+<div class="stat-title">
+Delivery
+</div>
 
-                    <div class="stat-value online"
-                    id="discordStatus">
-                        ● Online
-                    </div>
-                </div>
+<div class="stat-value">
+Instant DM
+</div>
+</div>
 
-                <div class="stat">
-                    <div class="stat-title">
-                        Realtime Visitors
-                    </div>
+</div>
 
-                    <div class="stat-value"
-                    id="visitors">
-                        1
-                    </div>
-                </div>
+</div>
+</div>
 
-                <div class="stat">
-                    <div class="stat-title">
-                        Payment Methods
-                    </div>
+<!-- SHOP -->
 
-                    <div class="stat-value">
-                        PayPal / QRIS
-                    </div>
-                </div>
+<div class="section-title">
+Products
+</div>
 
-            </div>
+<div class="products">
 
-            <!-- BUTTONS -->
+<div class="card">
 
-            <div class="buttons">
+<h2>Premium Key</h2>
 
-                <button class="btn discord"
-                onclick="openDiscord()">
-                    Open Discord
-                </button>
+<div class="price">
+$5
+</div>
 
-                <button class="btn paypal"
-                onclick="window.open('https://paypal.me/XZuyaX')">
-                    PayPal
-                </button>
+<p>
+Access premium features,
+priority updates,
+and exclusive utilities.
+</p>
 
-                <button class="btn music"
-                onclick="toggleMusic()">
-                    Toggle Music
-                </button>
+<div class="features">
 
-            </div>
+<div>✦ Lifetime Access</div>
+<div>✦ Premium Features</div>
+<div>✦ Fast Updates</div>
+<div>✦ Discord Support</div>
 
-            <!-- GUIDE -->
+</div>
 
-            <div class="guide">
+<div class="buttons">
 
-                <h2>How To Buy</h2>
+<button class="btn discord"
+onclick="openDiscord()">
+Buy via Discord
+</button>
 
-                <div class="step">
-                    <div class="num">1</div>
+<button class="btn paypal"
+onclick="window.open('https://paypal.me/XZuyaX')">
+PayPal
+</button>
 
-                    <div>
-                        <h3>Contact Zuya</h3>
+</div>
 
-                        <p>
-                            Open Discord and send a message saying that you want
-                            to purchase a Permanent or Premium Key.
-                        </p>
-                    </div>
-                </div>
+</div>
 
-                <div class="step">
-                    <div class="num">2</div>
+<div class="card">
 
-                    <div>
-                        <h3>Wait For Response</h3>
+<h2>Permanent Key</h2>
 
-                        <p>
-                            Once Zuya replies, you will usually be asked about
-                            your payment method or whether the payment has been sent.
-                        </p>
-                    </div>
-                </div>
+<div class="price">
+$10
+</div>
 
-                <div class="step">
-                    <div class="num">3</div>
+<p>
+Permanent access to all
+main script systems
+with future updates included.
+</p>
 
-                    <div>
-                        <h3>Complete Payment</h3>
+<div class="features">
 
-                        <p>
-                            Payment methods available:
-                            PayPal or QRIS only.
-                        </p>
-                    </div>
-                </div>
+<div>✦ Permanent Access</div>
+<div>✦ Future Updates</div>
+<div>✦ Premium Support</div>
+<div>✦ Instant Delivery</div>
 
-                <div class="step">
-                    <div class="num">4</div>
+</div>
 
-                    <div>
-                        <h3>Receive Your Key</h3>
+<div class="buttons">
 
-                        <p>
-                            After payment confirmation,
-                            your key will be delivered directly through Discord DM.
-                        </p>
-                    </div>
-                </div>
+<button class="btn discord"
+onclick="openDiscord()">
+Buy via Discord
+</button>
 
-            </div>
+<button class="btn qris"
+onclick="document.getElementById('payment').scrollIntoView()">
+QRIS Payment
+</button>
 
-            <!-- TEMPLATE -->
+</div>
 
-            <div class="template">
+</div>
 
-<pre id="templateMessage">Hello Zuya, I would like to purchase a script key.
+</div>
+
+<!-- PAYMENT -->
+
+<div class="payment" id="payment">
+
+<div class="section-title"
+style="margin-top:0;">
+Payment Methods
+</div>
+
+<div class="payment-grid">
+
+<div class="pay-box">
+
+<h3>PayPal</h3>
+
+<p>
+Click the button below to send payment
+through PayPal securely.
+</p>
+
+<div class="buttons">
+
+<button class="btn paypal"
+onclick="window.open('https://paypal.me/XZuyaX')">
+Open PayPal
+</button>
+
+</div>
+
+</div>
+
+<div class="pay-box">
+
+<h3>QRIS</h3>
+
+<p>
+Scan the QRIS code below using your e-wallet
+or mobile banking app.
+After payment, send proof of transfer via Discord.
+</p>
+
+<!-- GANTI LINK QRIS -->
+
+<img class="qr"
+src="https://i.imgur.com/JqYeZ4D.png">
+
+</div>
+
+</div>
+
+</div>
+
+<!-- GUIDE -->
+
+<div class="guide">
+
+<div class="section-title">
+Purchase Guide
+</div>
+
+<div class="steps">
+
+<div class="step">
+
+<div class="number">
+1
+</div>
+
+<div>
+
+<h3>Contact Zuya</h3>
+
+<p>
+Open Discord and message Zuya saying
+you want to purchase a Premium Key
+or Permanent Key.
+</p>
+
+</div>
+
+</div>
+
+<div class="step">
+
+<div class="number">
+2
+</div>
+
+<div>
+
+<h3>Wait For Response</h3>
+
+<p>
+After Zuya replies,
+you will usually be asked
+which payment method you want to use
+or whether payment has already been completed.
+</p>
+
+</div>
+
+</div>
+
+<div class="step">
+
+<div class="number">
+3
+</div>
+
+<div>
+
+<h3>Complete Payment</h3>
+
+<p>
+Payments are accepted via:
+PayPal or QRIS only.
+</p>
+
+</div>
+
+</div>
+
+<div class="step">
+
+<div class="number">
+4
+</div>
+
+<div>
+
+<h3>Send Proof Of Payment</h3>
+
+<p>
+After sending payment,
+send proof of transfer/screenshot
+through Discord DM for verification.
+</p>
+
+</div>
+
+</div>
+
+<div class="step">
+
+<div class="number">
+5
+</div>
+
+<div>
+
+<h3>Receive Your Key</h3>
+
+<p>
+Once payment is confirmed,
+your script key will be delivered directly
+through Discord.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- TEMPLATE -->
+
+<div class="template">
+
+<h2>Message Template</h2>
+
+<pre>Hello Zuya, I would like to purchase a script key.
 
 Package:
-- Permanent / Premium
+- Premium / Permanent
 
 Discord Username:
 
 Payment Method:
 - PayPal / QRIS
 
-Please let me know the next steps.</pre>
+I will send proof of payment after transfer.</pre>
 
-            </div>
+</div>
 
-            <div class="footer">
-                github.io • fantasy adventure vibes • made by zuya
-            </div>
+<div class="footer">
+github.io • fantasy adventure shop • made by zuya
+</div>
 
-        </div>
-    </div>
 </div>
 
 <!-- MUSIC -->
 
-<audio id="music" loop>
-    <source src="https://files.catbox.moe/zc9mla.mp3" type="audio/mpeg">
+<audio id="music" loop autoplay>
+<source src="https://files.catbox.moe/zc9mla.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-/* ==========================
-   CONFIG
-========================== */
-
-const discordUser =
-"123456789012345678";
-
-/* ==========================
-   STARS
-========================== */
+/* =========================
+STARS
+========================= */
 
 const stars =
 document.getElementById("stars");
 
-for(let i=0;i<80;i++){
+for(let i=0;i<90;i++){
 
-    const s =
-    document.createElement("div");
+const s =
+document.createElement("div");
 
-    s.className = "star";
+s.className = "star";
 
-    s.style.left =
-    Math.random()*100+"%";
+s.style.left =
+Math.random()*100+"%";
 
-    s.style.top =
-    Math.random()*100+"%";
+s.style.top =
+Math.random()*100+"%";
 
-    s.style.opacity =
-    Math.random();
+s.style.opacity =
+Math.random();
 
-    s.style.animationDuration =
-    (Math.random()*12+8)+"s";
+s.style.animationDuration =
+(Math.random()*12+8)+"s";
 
-    stars.appendChild(s);
+stars.appendChild(s);
+
 }
 
-/* ==========================
-   VISITOR COUNTER
-========================== */
+/* =========================
+DISCORD
+========================= */
 
-let count =
-localStorage.getItem("zuya_visits");
-
-if(!count){
-
-    count =
-    Math.floor(Math.random()*40)+20;
-
-}else{
-
-    count =
-    parseInt(count)+1;
-}
-
-localStorage.setItem(
-    "zuya_visits",
-    count
-);
-
-document.getElementById(
-    "visitors"
-).innerText = count;
-
-/* fake realtime */
-
-setInterval(()=>{
-
-    let current =
-    parseInt(
-        document.getElementById(
-            "visitors"
-        ).innerText
-    );
-
-    const random =
-    Math.random() > .5 ? 1 : -1;
-
-    current += random;
-
-    if(current < 1)
-    current = 1;
-
-    document.getElementById(
-        "visitors"
-    ).innerText = current;
-
-},5000);
-
-/* ==========================
-   DISCORD STATUS
-========================== */
-
-/* fake dynamic status */
-
-const status =
-document.getElementById(
-    "discordStatus"
-);
-
-setInterval(()=>{
-
-    const online =
-    Math.random() > .15;
-
-    if(online){
-
-        status.innerHTML =
-        "● Online";
-
-        status.className =
-        "stat-value online";
-
-    }else{
-
-        status.innerHTML =
-        "● Offline";
-
-        status.className =
-        "stat-value offline";
-    }
-
-},10000);
-
-/* ==========================
-   DISCORD BUTTON
-========================== */
+const discordUser =
+"123456789012345678";
 
 async function openDiscord(){
 
 const message =
 `Hello Zuya, I would like to purchase a script key.
 
+Package:
+- Premium / Permanent
+
+Discord Username:
+
 Payment Method:
-- PayPal / QRIS`;
+- PayPal / QRIS
+
+I will send proof of payment after transfer.`;
 
 await navigator.clipboard
 .writeText(message);
@@ -727,48 +940,18 @@ window.open(
 
 }
 
-/* ==========================
-   MUSIC
-========================== */
+/* =========================
+MUSIC
+========================= */
 
 const music =
 document.getElementById("music");
 
-let playing = false;
-
-function toggleMusic(){
-
-if(!playing){
-
-music.volume = 0.45;
-
-music.play();
-
-playing = true;
-
-}else{
-
-music.pause();
-
-playing = false;
-
-}
-
-}
+music.volume = 0.4;
 
 window.addEventListener("click",()=>{
 
-if(!playing){
-
-music.volume = 0.45;
-
-music.play()
-.then(()=>{
-playing = true;
-})
-.catch(()=>{});
-
-}
+music.play().catch(()=>{});
 
 },{ once:true });
 
