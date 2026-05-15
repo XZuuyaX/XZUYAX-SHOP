@@ -5,10 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zuya • Key Shop</title>
+<title>XZuyaX's HUB | Store</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,17 +18,11 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    font-family:'Inter',sans-serif;
-    overflow-x:hidden;
-    background:#050816;
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+    background:#060816;
     color:white;
-    min-height:100vh;
-    position:relative;
 }
 
 /* =========================
@@ -40,12 +34,12 @@ BACKGROUND
     inset:0;
 
     background:
-    linear-gradient(rgba(3,6,16,.65),rgba(3,6,16,.92)),
+    linear-gradient(rgba(6,8,18,.55),rgba(6,8,18,.92)),
     url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2071&auto=format&fit=crop')
     center/cover no-repeat;
 
-    transform:scale(1.06);
-    filter:blur(4px);
+    filter:blur(3px);
+    transform:scale(1.05);
 
     z-index:-3;
 }
@@ -56,8 +50,8 @@ BACKGROUND
 
     background:
     radial-gradient(circle at top,
-    rgba(121,133,255,.18),
-    transparent 40%);
+    rgba(111,125,255,.25),
+    transparent 45%);
 
     z-index:-2;
 }
@@ -97,26 +91,96 @@ to{
 }
 
 /* =========================
-LAYOUT
+INTRO
 ========================= */
 
-.container{
-    width:100%;
-    max-width:1000px;
-    margin:auto;
-    padding:40px 20px 80px;
+.intro{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    backdrop-filter:blur(8px);
+
+    z-index:10;
+
+    transition:1s;
+}
+
+.logo{
+    font-family:'Zen Tokyo Zoo',cursive;
+    font-size:80px;
+    letter-spacing:4px;
+
+    text-shadow:
+    0 0 30px rgba(120,130,255,.75);
+}
+
+.sub{
+    margin-top:15px;
+    font-size:18px;
+    color:#d9d9d9;
+}
+
+.enter{
+    margin-top:40px;
+
+    width:260px;
+    height:60px;
+
+    border:none;
+
+    border-radius:18px;
+
+    font-size:18px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:
+    linear-gradient(180deg,#6b7bff,#5865F2);
+
+    box-shadow:
+    0 10px 40px rgba(88,101,242,.45);
+
+    transition:.3s;
+}
+
+.enter:hover{
+    transform:translateY(-4px) scale(1.03);
 }
 
 /* =========================
-HERO
+MAIN
 ========================= */
 
-.hero{
+.main{
+    display:none;
 
-    padding:55px 40px;
+    width:100%;
+    height:100vh;
 
-    border-radius:36px;
+    overflow-y:auto;
 
+    padding:40px 20px 80px;
+}
+
+.container{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* =========================
+CARD
+========================= */
+
+.card{
     background:
     linear-gradient(
         180deg,
@@ -126,13 +190,17 @@ HERO
 
     border:1px solid rgba(255,255,255,.08);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(16px);
+
+    border-radius:34px;
+
+    overflow:hidden;
 
     box-shadow:
-    0 10px 60px rgba(0,0,0,.45),
-    0 0 100px rgba(120,130,255,.12);
+    0 10px 50px rgba(0,0,0,.45),
+    0 0 90px rgba(112,124,255,.12);
 
-    animation:fade .9s ease;
+    animation:fade .8s ease;
 }
 
 @keyframes fade{
@@ -149,155 +217,37 @@ to{
 
 }
 
-.profile{
-    display:flex;
-    align-items:center;
-    gap:25px;
-    flex-wrap:wrap;
+.banner{
+    height:240px;
+
+    background:
+    linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.55)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop')
+    center/cover;
 }
 
-.avatar{
-    width:130px;
-    height:130px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:5px solid rgba(255,255,255,.1);
-
-    box-shadow:
-    0 0 50px rgba(113,128,255,.55);
-
-    animation:pulse 4s infinite;
-}
-
-@keyframes pulse{
-
-0%{
-    box-shadow:0 0 20px rgba(113,128,255,.25);
-}
-
-50%{
-    box-shadow:0 0 60px rgba(113,128,255,.8);
-}
-
-100%{
-    box-shadow:0 0 20px rgba(113,128,255,.25);
-}
-
+.content{
+    padding:35px;
 }
 
 .title{
-    font-family:'Cinzel',serif;
-    font-size:52px;
-    font-weight:700;
-}
-
-.tag{
-    margin-top:8px;
-    color:#c8c8c8;
-    font-size:15px;
-}
-
-.status{
-    margin-top:14px;
-
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-
-    background:rgba(124,255,170,.12);
-
-    border:1px solid rgba(124,255,170,.25);
-
-    color:#7cffae;
-
-    padding:9px 15px;
-
-    border-radius:999px;
-
-    font-size:14px;
+    font-size:42px;
+    font-weight:800;
 }
 
 .desc{
-    margin-top:28px;
+    margin-top:15px;
 
     line-height:1.9;
     color:#dddddd;
-
-    font-size:15px;
 }
 
 /* =========================
-BUTTONS
+PRODUCT
 ========================= */
 
-.buttons{
+.product{
     margin-top:35px;
-
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    height:54px;
-
-    padding:0 28px;
-
-    border:none;
-
-    border-radius:18px;
-
-    font-size:15px;
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.25s;
-}
-
-.discord{
-    background:#5865F2;
-    color:white;
-
-    box-shadow:
-    0 10px 30px rgba(88,101,242,.35);
-}
-
-.discord:hover{
-    transform:translateY(-3px);
-}
-
-.paypal{
-    background:#009cde;
-    color:white;
-}
-
-.paypal:hover{
-    transform:translateY(-3px);
-}
-
-.qris{
-    background:#1fdf64;
-    color:#06110a;
-}
-
-.qris:hover{
-    transform:translateY(-3px);
-}
-
-/* =========================
-SECTION
-========================= */
-
-.section{
-    margin-top:40px;
-
-    padding:35px;
-
-    border-radius:32px;
 
     background:
     linear-gradient(
@@ -308,95 +258,210 @@ SECTION
 
     border:1px solid rgba(255,255,255,.08);
 
-    backdrop-filter:blur(14px);
-}
+    border-radius:28px;
 
-.section h2{
-    font-family:'Cinzel',serif;
-    font-size:34px;
-    margin-bottom:22px;
-}
+    padding:30px;
 
-/* =========================
-STEPS
-========================= */
-
-.step{
     display:flex;
-    gap:18px;
-
-    margin-bottom:28px;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
 }
 
-.number{
-    min-width:52px;
-    height:52px;
+.product h2{
+    font-size:32px;
+}
 
-    border-radius:50%;
+.price{
+    margin-top:8px;
+
+    color:#8ea0ff;
+
+    font-size:48px;
+    font-weight:800;
+}
+
+.buy{
+    width:230px;
+    height:58px;
+
+    border:none;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    font-size:16px;
+    font-weight:700;
+
+    color:white;
 
     background:
-    linear-gradient(180deg,#6978ff,#5865F2);
+    linear-gradient(180deg,#6b7bff,#5865F2);
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-weight:800;
-    font-size:18px;
-
-    box-shadow:
-    0 0 25px rgba(88,101,242,.35);
+    transition:.3s;
 }
 
-.step h3{
-    margin-bottom:8px;
-    font-size:20px;
-}
-
-.step p{
-    color:#d9d9d9;
-    line-height:1.9;
+.buy:hover{
+    transform:translateY(-3px);
 }
 
 /* =========================
-QRIS
+CHECKOUT
 ========================= */
 
-.qr{
-    width:100%;
-    max-width:320px;
+.checkout{
+    margin-top:40px;
 
-    border-radius:26px;
+    display:none;
 
-    margin-top:20px;
+    animation:fade .5s ease;
+}
+
+.section{
+    margin-top:25px;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.03)
+    );
 
     border:1px solid rgba(255,255,255,.08);
 
-    box-shadow:
-    0 10px 35px rgba(0,0,0,.35);
+    border-radius:28px;
+
+    padding:30px;
+}
+
+.section h2{
+    margin-bottom:20px;
+    font-size:28px;
 }
 
 /* =========================
-MESSAGE
+PAYMENT
 ========================= */
 
-.message{
+.payments{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.pay-card{
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:25px;
+
+    transition:.25s;
+}
+
+.pay-card:hover{
+    transform:translateY(-4px);
+}
+
+.pay-card h3{
+    font-size:24px;
+}
+
+.pay-card p{
+    margin-top:12px;
+
+    color:#d8d8d8;
+    line-height:1.8;
+}
+
+.pay-btn{
+    margin-top:22px;
+
+    width:100%;
+    height:52px;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:15px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.paypal{
+    background:#009cde;
+    color:white;
+}
+
+.qris{
+    background:#22d865;
+    color:#06120b;
+}
+
+.pay-btn:hover{
+    transform:translateY(-2px);
+}
+
+.qr{
+    width:100%;
+    border-radius:22px;
     margin-top:20px;
+}
+
+/* =========================
+RECEIPT
+========================= */
+
+.receipt{
+    margin-top:25px;
 
     background:#0b1022;
 
     border-radius:24px;
 
-    padding:24px;
+    padding:25px;
 
     border:1px solid rgba(255,255,255,.06);
 }
 
-.message pre{
+.receipt pre{
     white-space:pre-wrap;
     line-height:1.9;
     color:#dddddd;
-    font-size:14px;
+}
+
+.discord{
+    margin-top:22px;
+
+    width:100%;
+    height:56px;
+
+    border:none;
+
+    border-radius:18px;
+
+    font-size:16px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:#5865F2;
+
+    transition:.25s;
+}
+
+.discord:hover{
+    transform:translateY(-3px);
 }
 
 /* =========================
@@ -404,29 +469,12 @@ FOOTER
 ========================= */
 
 .footer{
-    margin-top:45px;
+    margin-top:40px;
 
     text-align:center;
 
     color:#909090;
-
     font-size:13px;
-}
-
-@media(max-width:700px){
-
-.hero{
-    padding:40px 25px;
-}
-
-.title{
-    font-size:40px;
-}
-
-.section{
-    padding:28px 22px;
-}
-
 }
 
 </style>
@@ -438,225 +486,170 @@ FOOTER
 
 <div class="particles" id="particles"></div>
 
+<!-- INTRO -->
+
+<div class="intro" id="intro">
+
+<div class="logo">
+XZuyaX's HUB
+</div>
+
+<div class="sub">
+Fantasy Anime Script Store
+</div>
+
+<button class="enter"
+onclick="enterSite()">
+Click To Continue
+</button>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main" id="main">
+
 <div class="container">
 
-<!-- HERO -->
+<div class="card">
 
-<div class="hero">
+<div class="banner"></div>
 
-<div class="profile">
-
-<img class="avatar"
-src="https://i.imgur.com/2DhmtJ4.jpeg">
-
-<div>
+<div class="content">
 
 <div class="title">
-Zuya
-</div>
-
-<div class="tag">
-@the_readers
-</div>
-
-<div class="status">
-● Online
-</div>
-
-</div>
-
+XZuyaX's HUB | Store
 </div>
 
 <div class="desc">
-Welcome to Zuya's Fantasy Key Shop ✦<br><br>
-
-This website is used for purchasing Premium or Permanent script keys.
-All purchases are handled manually through Discord DM for safety and fast delivery.
-After payment confirmation, your key will be delivered directly to your Discord account.
+Purchase your Permanent Key securely through PayPal or QRIS.
+After completing payment, please send your proof of payment
+(receipt/screenshot) to Discord:
+<b>@the_readers</b>
 </div>
 
-<div class="buttons">
+<!-- PRODUCT -->
 
-<button class="btn discord"
-onclick="openDiscord()">
-Chat On Discord
+<div class="product">
+
+<div>
+
+<h2>Permanent Key</h2>
+
+<div class="price">
+$10
+</div>
+
+</div>
+
+<button class="buy"
+onclick="openCheckout()">
+Checkout
 </button>
 
-<button class="btn paypal"
-onclick="window.open('https://paypal.me/XZuyaX')">
-PayPal
-</button>
-
-<button class="btn qris"
-onclick="document.getElementById('payment').scrollIntoView()">
-QRIS
-</button>
-
 </div>
 
-</div>
+<!-- CHECKOUT -->
 
-<!-- TUTORIAL -->
-
-<div class="section">
-
-<h2>Purchase Tutorial</h2>
-
-<div class="step">
-
-<div class="number">
-1
-</div>
-
-<div>
-
-<h3>Contact Zuya</h3>
-
-<p>
-Open Discord and send a message to
-<b>@the_readers</b> saying that you want to purchase a Premium or Permanent Key.
-A message template is already prepared automatically.
-</p>
-
-</div>
-
-</div>
-
-<div class="step">
-
-<div class="number">
-2
-</div>
-
-<div>
-
-<h3>Wait For Reply</h3>
-
-<p>
-After Zuya replies,
-you will usually be asked which payment method you want to use
-or whether you have already completed the payment.
-</p>
-
-</div>
-
-</div>
-
-<div class="step">
-
-<div class="number">
-3
-</div>
-
-<div>
-
-<h3>Complete Payment</h3>
-
-<p>
-Payments are accepted via:
-PayPal or QRIS only.
-Please make sure the payment is completed correctly.
-</p>
-
-</div>
-
-</div>
-
-<div class="step">
-
-<div class="number">
-4
-</div>
-
-<div>
-
-<h3>Send Proof Of Payment</h3>
-
-<p>
-After payment,
-send a screenshot or proof of transfer
-through Discord DM for verification.
-</p>
-
-</div>
-
-</div>
-
-<div class="step">
-
-<div class="number">
-5
-</div>
-
-<div>
-
-<h3>Receive Your Key</h3>
-
-<p>
-Once payment has been confirmed,
-your script key will be delivered directly through Discord DM.
-</p>
-
-</div>
-
-</div>
-
-</div>
+<div class="checkout" id="checkout">
 
 <!-- PAYMENT -->
 
-<div class="section" id="payment">
+<div class="section">
 
-<h2>Payment Methods</h2>
+<h2>Select Payment Method</h2>
 
-<div class="step">
+<div class="payments">
 
-<div class="number">
-$
-</div>
+<!-- PAYPAL -->
 
-<div>
+<div class="pay-card">
 
 <h3>PayPal</h3>
 
 <p>
-Use the PayPal button below to complete payment securely.
+Complete your payment securely using PayPal.
+After payment, screenshot your receipt and send it to Discord.
 </p>
 
-<div class="buttons"
-style="margin-top:18px;">
-
-<button class="btn paypal"
+<button class="pay-btn paypal"
 onclick="window.open('https://paypal.me/XZuyaX')">
 Open PayPal
 </button>
 
 </div>
 
-</div>
+<!-- QRIS -->
 
-</div>
-
-<div class="step">
-
-<div class="number">
-QR
-</div>
-
-<div>
+<div class="pay-card">
 
 <h3>QRIS</h3>
 
 <p>
-Scan the QRIS code below using your e-wallet
-or mobile banking app.
-After payment, send proof of transfer through Discord.
+Scan the QRIS code below using your e-wallet or banking app.
+After payment, screenshot your receipt and send it to Discord.
 </p>
 
-<!-- GANTI LINK QRIS -->
+<!-- GANTI FOTO QRIS -->
 
 <img class="qr"
 src="https://i.imgur.com/JqYeZ4D.png">
+
+<button class="pay-btn qris">
+QRIS Payment
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RECEIPT -->
+
+<div class="section">
+
+<h2>Payment Receipt</h2>
+
+<div class="receipt">
+
+<pre>━━━━━━━━━━━━━━━━━━━━━━
+        XZuyaX's HUB
+━━━━━━━━━━━━━━━━━━━━━━
+
+Product:
+Permanent Key
+
+Payment:
+PayPal / QRIS
+
+Status:
+Waiting Verification
+
+After payment:
+1. Screenshot your receipt
+2. Send proof of payment
+3. Send it to Discord:
+   @the_readers
+
+━━━━━━━━━━━━━━━━━━━━━━</pre>
+
+</div>
+
+<button class="discord"
+onclick="openDiscord()">
+Send Proof To Discord
+</button>
+
+</div>
+
+</div>
+
+<div class="footer">
+github.io • fantasy anime store • made by zuya
+</div>
+
+</div>
 
 </div>
 
@@ -664,7 +657,7 @@ src="https://i.imgur.com/JqYeZ4D.png">
 
 <!-- MUSIC -->
 
-<audio id="music" loop autoplay>
+<audio id="music" loop>
 <source src="https://files.catbox.moe/zc9mla.mp3" type="audio/mpeg">
 </audio>
 
@@ -701,21 +694,71 @@ particles.appendChild(s);
 }
 
 /* =========================
+ENTER SITE
+========================= */
+
+function enterSite(){
+
+document.getElementById(
+"intro"
+).style.opacity = "0";
+
+setTimeout(()=>{
+
+document.getElementById(
+"intro"
+).style.display = "none";
+
+document.getElementById(
+"main"
+).style.display = "block";
+
+},800);
+
+/* MUSIC */
+
+const music =
+document.getElementById("music");
+
+music.volume = 0.45;
+
+music.play().catch(()=>{});
+
+}
+
+/* =========================
+CHECKOUT
+========================= */
+
+function openCheckout(){
+
+document.getElementById(
+"checkout"
+).style.display = "block";
+
+window.scrollTo({
+top:9999,
+behavior:"smooth"
+});
+
+}
+
+/* =========================
 DISCORD
 ========================= */
 
 async function openDiscord(){
 
-const message =
-`Hello Zuya, I would like to purchase a script key.
+const msg =
+`Hello Zuya, I have completed the payment for Permanent Key.
 
 Payment Method:
-- PayPal / QRIS (Choose One)
+PayPal / QRIS
 
-I will send proof of payment after transfer.`;
+I will send the payment receipt below.`;
 
 await navigator.clipboard
-.writeText(message);
+.writeText(msg);
 
 window.open(
 "https://discord.com/users/the_readers",
@@ -723,21 +766,6 @@ window.open(
 );
 
 }
-
-/* =========================
-MUSIC
-========================= */
-
-const music =
-document.getElementById("music");
-
-music.volume = 0.45;
-
-window.addEventListener("click",()=>{
-
-music.play().catch(()=>{});
-
-},{ once:true });
 
 </script>
 
