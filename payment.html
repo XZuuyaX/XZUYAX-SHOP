@@ -1,82 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-
-<title>QRIS Payment</title>
-
-<link rel="stylesheet"
-href="style.css">
-
-</head>
-
-<body>
-
-<audio id="music" autoplay loop>
-<source src="assets/music.mp3">
-</audio>
-
-<div class="payment-card">
-
-<h1>
-QRIS Payment
-</h1>
-
-<img src="assets/qris.png"
-class="qr">
-
-<p>
-Upload your payment proof below
-</p>
-
-<input
-type="text"
-id="discord"
-placeholder="Your Discord UserID">
-
-<input
-type="file"
-id="proof">
-
-<button onclick="submitProof()">
-Submit QRIS Receipt
-</button>
-
-</div>
-
-<div class="popup"
-id="popup">
-
-<div class="popup-box">
-
-<h2>
-Payment Submitted
-</h2>
-
-<p>
-Your payment proof has been sent successfully.
-Please wait for verification.
-</p>
-
-<div class="popup-buttons">
-
-<button onclick="home()">
-Main Menu
-</button>
-
-<button onclick="closePopup()">
-Close
-</button>
-
-</div>
-
-</div>
-
-</div>
-
 <script>
-
-/* MUSIC */
 
 const music =
 document.getElementById(
@@ -94,8 +16,6 @@ music.play();
 },
 {once:true}
 );
-
-/* PAYMENT */
 
 async function submitProof(){
 
@@ -158,8 +78,27 @@ body:formData
 }
 );
 
-const result =
-await response.json();
+const text =
+await response.text();
+
+console.log(text);
+
+let result;
+
+try{
+
+result =
+JSON.parse(text);
+
+}catch{
+
+alert(
+"Invalid server response"
+);
+
+return;
+
+}
 
 if(result.success){
 
@@ -171,7 +110,7 @@ document.getElementById(
 }else{
 
 alert(
-"Failed to submit payment"
+"Upload failed"
 );
 
 }
@@ -187,8 +126,6 @@ alert(
 }
 
 }
-
-/* POPUP */
 
 function closePopup(){
 
@@ -207,35 +144,3 @@ window.location.href =
 }
 
 </script>
-
-</body>
-</html>
-<div class="popup-box">
-
-<h2>
-Payment Submitted
-</h2>
-
-<p>
-Your payment proof has been sent successfully.
-Please wait for verification.
-</p>
-
-<div class="popup-buttons">
-
-<button onclick="home()">
-Main Menu
-</button>
-
-<button onclick="closePopup()">
-Close
-</button>
-
-</div>
-
-</div>
-
-</div>
-  
-</body>
-</html>
