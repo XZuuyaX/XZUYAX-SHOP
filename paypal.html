@@ -1,241 +1,92 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-<title>
-PayPal Payment
-</title>
-
-<link rel="stylesheet"
-href="style.css">
-
+  <title>PayPal Payment</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <audio id="music" autoplay loop>
-<source src="assets/music.mp3">
+  <source src="assets/music.mp3">
 </audio>
 
 <div class="payment-card">
-
-<h1>
-PayPal Payment
-</h1>
-
-<p>
-Complete payment using PayPal.
-After payment, upload your receipt below.
-</p>
-
-<button onclick="openPaypal()">
-Open PayPal
-</button>
-
-<input
-type="text"
-id="discord"
-placeholder="Your Discord UserID">
-
-<input
-type="file"
-id="proof"
-accept="image/*">
-
-<button id="submitBtn"
-onclick="submitPaypal()">
-
-Submit PayPal Receipt
-
-</button>
-
+  <h1>PayPal Payment</h1>
+  <p>Complete payment using PayPal. After payment, upload your receipt below.</p>
+  <button onclick="openPaypal()">Open PayPal</button>
+  <input type="text" id="discord" placeholder="Your Discord UserID">
+  <input type="file" id="proof" accept="image/*">
+  <button id="submitBtn" onclick="submitPaypal()">Submit PayPal Receipt</button>
 </div>
 
-<div class="popup"
-id="popup">
-
-<div class="popup-box">
-
-<h2>
-Payment Submitted
-</h2>
-
-<p>
-Your payment proof has been sent successfully.
-Please wait for verification.
-</p>
-
-<div class="popup-buttons">
-
-<button onclick="home()">
-Main Menu
-</button>
-
-<button onclick="closePopup()">
-Close
-</button>
-
-</div>
-
-</div>
-
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <h2>Payment Submitted</h2>
+    <p>Your payment proof has been sent successfully. Please wait for verification.</p>
+    <div class="popup-buttons">
+      <button onclick="home()">Main Menu</button>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
 </div>
 
 <script>
+  const music = document.getElementById("music");
+  music.volume = 0.4;
+  document.body.addEventListener("click", () => { music.play(); }, { once: true });
 
-const music =
-document.getElementById(
-"music"
-);
+  function openPaypal() {
+    window.open("https://paypal.me/XZuyaX");
+  }
 
-music.volume = 0.4;
+  async function submitPaypal() {
+    const btn = document.getElementById("submitBtn");
+    const file = document.getElementById("proof").files[0];
+    const discord = document.getElementById("discord").value.trim();
 
-document.body.addEventListener(
-"click",
-()=>{
+    if (!discord) return alert("Enter Discord UserID");
+    if (!file) return alert("Upload receipt first");
 
-music.play();
+    btn.innerHTML = "Uploading...";
+    btn.disabled = true;
 
-},
-{once:true}
-);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("buyer", discord);
+    formData.append("payment", "PayPal");
 
-function openPaypal(){
+    try {
+      const res = await fetch("https://backend.sumiratcahayapermana.workers.dev/", {
+        method: "POST",
+        body: formData
+      });
 
-window.open(
-"https://paypal.me/XZuyaX"
-);
+      const json = await res.json(); // ← fix utama
 
-}
+      if (json.success) {
+        document.getElementById("popup").style.display = "flex";
+        btn.innerHTML = "Submitted";
+      } else {
+        alert("Failed to submit payment");
+        btn.innerHTML = "Submit PayPal Receipt";
+        btn.disabled = false;
+      }
 
-async function submitPaypal(){
+    } catch (err) {
+      console.error(err);
+      alert("Server Error");
+      btn.innerHTML = "Submit PayPal Receipt";
+      btn.disabled = false;
+    }
+  }
 
-const btn =
-document.getElementById(
-"submitBtn"
-);
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
 
-const file =
-document.getElementById(
-"proof"
-).files[0];
-
-const discord =
-document.getElementById(
-"discord"
-).value;
-
-if(!discord){
-
-alert(
-"Enter Discord UserID"
-);
-
-return;
-
-}
-
-if(!file){
-
-alert(
-"Upload receipt first"
-);
-
-return;
-
-}
-
-btn.innerHTML =
-"Uploading...";
-
-btn.disabled = true;
-
-const formData =
-new FormData();
-
-formData.append(
-"file",
-file
-);
-
-formData.append(
-"buyer",
-discord
-);
-
-formData.append(
-"payment",
-"PayPal"
-);
-
-try{
-
-const response =
-await fetch(
-"https://backend.sumiratcahayapermana.workers.dev/",
-{
-method:"POST",
-body:formData
-}
-);
-
-if(response.ok){
-
-document.getElementById(
-"popup"
-).style.display =
-"flex";
-
-btn.innerHTML =
-"Submitted";
-
-}else{
-
-alert(
-"Failed to submit payment"
-);
-
-btn.innerHTML =
-"Submit PayPal Receipt";
-
-btn.disabled = false;
-
-}
-
-}catch(err){
-
-console.log(err);
-
-alert(
-"Server Error"
-);
-
-btn.innerHTML =
-"Submit PayPal Receipt";
-
-btn.disabled = false;
-
-}
-
-}
-
-function closePopup(){
-
-document.getElementById(
-"popup"
-).style.display =
-"none";
-
-}
-
-function home(){
-
-window.location.href =
-"index.html";
-
-}
-
+  function home() {
+    window.location.href = "index.html";
+  }
 </script>
 
 </body>
