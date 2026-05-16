@@ -60,7 +60,6 @@ Submit QRIS Receipt
 </div>
 
 <script>
-
 async function submitProof(){
 
 const file =
@@ -103,6 +102,13 @@ method:"POST",
 body:formData
 }
 );
+
+document.getElementById(
+"popup"
+).style.display =
+"flex";
+
+}
 
 window.location.href =
 "success.html";
