@@ -3,16 +3,40 @@
 
 <head>
 
-<title>BUY</title>
+<title>
+Checkout
+</title>
 
 <link rel="stylesheet"
 href="style.css">
 
 </head>
 
+<body>
+
 <audio id="music" autoplay loop>
 <source src="assets/music.mp3">
 </audio>
+
+<div class="card">
+
+<h1>
+Select Payment
+</h1>
+
+<p>
+Choose your payment method
+</p>
+
+<button onclick="qris()">
+QRIS
+</button>
+
+<button onclick="paypal()">
+PayPal
+</button>
+
+</div>
 
 <script>
 
@@ -32,28 +56,6 @@ music.play();
 },
 {once:true}
 );
-
-</script>
-
-<body>
-
-<div class="card">
-
-<h1>
-Select Payment
-</h1>
-
-<button onclick="qris()">
-QRIS
-</button>
-
-<button onclick="paypal()">
-PayPal
-</button>
-
-</div>
-
-<script>
 
 function qris(){
 
