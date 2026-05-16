@@ -12,9 +12,13 @@ href="style.css">
 
 <body>
 
+<!-- MUSIC -->
+
 <audio id="music" autoplay loop>
 <source src="assets/music.mp3">
 </audio>
+
+<!-- CARD -->
 
 <div class="payment-card">
 
@@ -38,11 +42,16 @@ placeholder="Your Discord UserID">
 type="file"
 id="proof">
 
-<button onclick="submitProof()">
+<button id="submitBtn"
+onclick="submitProof()">
+
 Submit QRIS Receipt
+
 </button>
 
 </div>
+
+<!-- POPUP -->
 
 <div class="popup"
 id="popup">
@@ -74,6 +83,8 @@ Close
 
 </div>
 
+<!-- SCRIPT -->
+
 <script>
 
 /* MUSIC */
@@ -83,7 +94,7 @@ document.getElementById(
 "music"
 );
 
-music.volume = 0.5;
+music.volume = 0.4;
 
 document.body.addEventListener(
 "click",
@@ -98,6 +109,11 @@ music.play();
 /* PAYMENT */
 
 async function submitProof(){
+
+const btn =
+document.getElementById(
+"submitBtn"
+);
 
 const file =
 document.getElementById(
@@ -129,6 +145,11 @@ return;
 
 }
 
+btn.innerHTML =
+"Uploading...";
+
+btn.disabled = true;
+
 const formData =
 new FormData();
 
@@ -158,21 +179,26 @@ body:formData
 }
 );
 
-const result =
-await response.json();
-
-if(result.success){
+if(response.ok){
 
 document.getElementById(
 "popup"
 ).style.display =
 "flex";
 
+btn.innerHTML =
+"Submitted";
+
 }else{
 
 alert(
 "Failed to submit payment"
 );
+
+btn.innerHTML =
+"Submit QRIS Receipt";
+
+btn.disabled = false;
 
 }
 
@@ -183,6 +209,11 @@ console.log(err);
 alert(
 "Server Error"
 );
+
+btn.innerHTML =
+"Submit QRIS Receipt";
+
+btn.disabled = false;
 
 }
 
