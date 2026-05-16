@@ -10,6 +10,31 @@ href="style.css">
 
 </head>
 
+<audio id="music" autoplay loop>
+<source src="assets/music.mp3">
+</audio>
+
+<script>
+
+const music =
+document.getElementById(
+"music"
+);
+
+music.volume = 0.5;
+
+document.body.addEventListener(
+"click",
+()=>{
+
+music.play();
+
+},
+{once:true}
+);
+
+</script>
+
 <body>
 
 <div class="payment-card">
