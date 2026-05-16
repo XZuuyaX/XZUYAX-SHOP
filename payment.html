@@ -10,11 +10,73 @@ href="style.css">
 
 </head>
 
+<body>
+
 <audio id="music" autoplay loop>
 <source src="assets/music.mp3">
 </audio>
 
+<div class="payment-card">
+
+<h1>
+QRIS Payment
+</h1>
+
+<img src="assets/qris.png"
+class="qr">
+
+<p>
+Upload your payment proof below
+</p>
+
+<input
+type="text"
+id="discord"
+placeholder="Your Discord UserID">
+
+<input
+type="file"
+id="proof">
+
+<button onclick="submitProof()">
+Submit QRIS Receipt
+</button>
+
+</div>
+
+<div class="popup"
+id="popup">
+
+<div class="popup-box">
+
+<h2>
+Payment Submitted
+</h2>
+
+<p>
+Your payment proof has been sent successfully.
+Please wait for verification.
+</p>
+
+<div class="popup-buttons">
+
+<button onclick="home()">
+Main Menu
+</button>
+
+<button onclick="closePopup()">
+Close
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 <script>
+
+/* MUSIC */
 
 const music =
 document.getElementById(
@@ -33,39 +95,29 @@ music.play();
 {once:true}
 );
 
-</script>
+/* PAYMENT */
 
-<body>
-
-<div class="payment-card">
-
-<h1>
-QRIS Payment
-</h1>
-
-<img src="assets/qris.png"
-class="qr">
-
-<p>
-Upload payment proof below
-</p>
-
-<input type="file"
-id="proof">
-
-<button onclick="submitProof()">
-Submit QRIS Receipt
-</button>
-
-</div>
-
-<script>
 async function submitProof(){
 
 const file =
 document.getElementById(
 "proof"
 ).files[0];
+
+const discord =
+document.getElementById(
+"discord"
+).value;
+
+if(!discord){
+
+alert(
+"Enter Discord UserID"
+);
+
+return;
+
+}
 
 if(!file){
 
@@ -87,7 +139,7 @@ file
 
 formData.append(
 "buyer",
-"Anonymous"
+discord
 );
 
 formData.append(
@@ -95,6 +147,9 @@ formData.append(
 "QRIS"
 );
 
+try{
+
+const response =
 await fetch(
 "https://backend.sumiratcahayapermana.workers.dev/",
 {
@@ -103,20 +158,39 @@ body:formData
 }
 );
 
+const result =
+await response.json();
+
+if(result.success){
+
 document.getElementById(
 "popup"
 ).style.display =
 "flex";
 
+}else{
+
+alert(
+"Failed to submit payment"
+);
+
 }
 
-window.location.href =
-"success.html";
+}catch(err){
+
+console.log(err);
+
+alert(
+"Server Error"
+);
 
 }
 
+}
 
-  function closePopup(){
+/* POPUP */
+
+function closePopup(){
 
 document.getElementById(
 "popup"
@@ -130,12 +204,12 @@ function home(){
 window.location.href =
 "index.html";
 
-}.
-</script>
-  
-<div class="popup"
-id="popup">
+}
 
+</script>
+
+</body>
+</html>
 <div class="popup-box">
 
 <h2>
