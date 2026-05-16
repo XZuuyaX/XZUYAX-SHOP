@@ -1,242 +1,88 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-<title>QRIS Payment</title>
-
-<link rel="stylesheet"
-href="style.css">
-
+  <title>QRIS Payment</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- MUSIC -->
-
 <audio id="music" autoplay loop>
-<source src="assets/music.mp3">
+  <source src="assets/music.mp3">
 </audio>
 
-<!-- CARD -->
-
 <div class="payment-card">
-
-<h1>
-QRIS Payment
-</h1>
-
-<img src="assets/qris.png"
-class="qr">
-
-<p>
-Upload your payment proof below
-</p>
-
-<input
-type="text"
-id="discord"
-placeholder="Your Discord UserID">
-
-<input
-type="file"
-id="proof">
-
-<button id="submitBtn"
-onclick="submitProof()">
-
-Submit QRIS Receipt
-
-</button>
-
+  <h1>QRIS Payment</h1>
+  <img src="assets/qris.png" class="qr">
+  <p>Upload your payment proof below</p>
+  <input type="text" id="discord" placeholder="Your Discord UserID">
+  <input type="file" id="proof">
+  <button id="submitBtn" onclick="submitProof()">Submit QRIS Receipt</button>
 </div>
 
-<!-- POPUP -->
-
-<div class="popup"
-id="popup">
-
-<div class="popup-box">
-
-<h2>
-Payment Submitted
-</h2>
-
-<p>
-Your payment proof has been sent successfully.
-Please wait for verification.
-</p>
-
-<div class="popup-buttons">
-
-<button onclick="home()">
-Main Menu
-</button>
-
-<button onclick="closePopup()">
-Close
-</button>
-
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <h2>Payment Submitted</h2>
+    <p>Your payment proof has been sent successfully. Please wait for verification.</p>
+    <div class="popup-buttons">
+      <button onclick="home()">Main Menu</button>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
 </div>
-
-</div>
-
-</div>
-
-<!-- SCRIPT -->
 
 <script>
+  const music = document.getElementById("music");
+  music.volume = 0.4;
+  document.body.addEventListener("click", () => { music.play(); }, { once: true });
 
-/* MUSIC */
+  async function submitProof() {
+    const btn = document.getElementById("submitBtn");
+    const file = document.getElementById("proof").files[0];
+    const discord = document.getElementById("discord").value.trim();
 
-const music =
-document.getElementById(
-"music"
-);
+    if (!discord) return alert("Enter Discord UserID");
+    if (!file) return alert("Upload receipt first");
 
-music.volume = 0.4;
+    btn.innerHTML = "Uploading...";
+    btn.disabled = true;
 
-document.body.addEventListener(
-"click",
-()=>{
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("buyer", discord);
+    formData.append("payment", "QRIS");
 
-music.play();
+    try {
+      const res = await fetch("https://backend.sumiratcahayapermana.workers.dev/", {
+        method: "POST",
+        body: formData
+      });
 
-},
-{once:true}
-);
+      const json = await res.json();
 
-/* PAYMENT */
+      if (json.success) {
+        document.getElementById("popup").style.display = "flex";
+        btn.innerHTML = "Submitted";
+      } else {
+        alert("Failed to submit payment");
+        btn.innerHTML = "Submit QRIS Receipt";
+        btn.disabled = false;
+      }
 
-async function submitProof(){
+    } catch (err) {
+      console.error(err);
+      alert("Server Error");
+      btn.innerHTML = "Submit QRIS Receipt";
+      btn.disabled = false;
+    }
+  }
 
-const btn =
-document.getElementById(
-"submitBtn"
-);
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
 
-const file =
-document.getElementById(
-"proof"
-).files[0];
-
-const discord =
-document.getElementById(
-"discord"
-).value;
-
-if(!discord){
-
-alert(
-"Enter Discord UserID"
-);
-
-return;
-
-}
-
-if(!file){
-
-alert(
-"Upload receipt first"
-);
-
-return;
-
-}
-
-btn.innerHTML =
-"Uploading...";
-
-btn.disabled = true;
-
-const formData =
-new FormData();
-
-formData.append(
-"file",
-file
-);
-
-formData.append(
-"buyer",
-discord
-);
-
-formData.append(
-"payment",
-"QRIS"
-);
-
-try{
-
-const response =
-await fetch(
-"https://backend.sumiratcahayapermana.workers.dev/",
-{
-method:"POST",
-body:formData
-}
-);
-
-if(response.ok){
-
-document.getElementById(
-"popup"
-).style.display =
-"flex";
-
-btn.innerHTML =
-"Submitted";
-
-}else{
-
-alert(
-"Failed to submit payment"
-);
-
-btn.innerHTML =
-"Submit QRIS Receipt";
-
-btn.disabled = false;
-
-}
-
-}catch(err){
-
-console.log(err);
-
-alert(
-"Server Error"
-);
-
-btn.innerHTML =
-"Submit QRIS Receipt";
-
-btn.disabled = false;
-
-}
-
-}
-
-/* POPUP */
-
-function closePopup(){
-
-document.getElementById(
-"popup"
-).style.display =
-"none";
-
-}
-
-function home(){
-
-window.location.href =
-"index.html";
-
-}
-
+  function home() {
+    window.location.href = "index.html";
+  }
 </script>
 
 </body>
