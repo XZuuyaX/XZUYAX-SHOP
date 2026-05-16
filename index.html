@@ -3,7 +3,9 @@
 
 <head>
 
-<title>XZuyaX HUB</title>
+<title>
+XZuyaX HUB
+</title>
 
 <link rel="stylesheet"
 href="style.css">
@@ -12,6 +14,10 @@ href="style.css">
 
 <body>
 
+<audio id="music" autoplay loop>
+<source src="assets/music.mp3">
+</audio>
+
 <div class="card">
 
 <h1>
@@ -19,7 +25,7 @@ XZuyaX's HUB
 </h1>
 
 <p>
-Key Shop
+SHOP
 </p>
 
 <button onclick="enter()">
@@ -28,27 +34,29 @@ Click To Continue
 
 </div>
 
-<audio id="music" loop>
-<source src="assets/music.mp3">
-</audio>
-
 <script>
-
-function enter(){
 
 const music =
 document.getElementById(
 "music"
 );
 
+music.volume = 0.4;
+
+document.body.addEventListener(
+"click",
+()=>{
+
 music.play();
 
-setTimeout(()=>{
+},
+{once:true}
+);
+
+function enter(){
 
 window.location.href =
 "store.html";
-
-},1000);
 
 }
 
