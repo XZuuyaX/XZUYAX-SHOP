@@ -3,16 +3,42 @@
 
 <head>
 
-<title>Success</title>
+<title>
+Success
+</title>
 
 <link rel="stylesheet"
 href="style.css">
 
 </head>
 
+<body>
+
 <audio id="music" autoplay loop>
 <source src="assets/music.mp3">
 </audio>
+
+<div class="success-card">
+
+<h1>
+Payment Submitted
+</h1>
+
+<p>
+Please wait for verification.
+If needed, contact:
+@the_readers
+</p>
+
+<button onclick="discord()">
+Open Discord
+</button>
+
+<button onclick="home()">
+Main Menu
+</button>
+
+</div>
 
 <script>
 
@@ -33,34 +59,18 @@ music.play();
 {once:true}
 );
 
-</script>
-
-<body>
-
-<div class="success-card">
-
-<h1>
-Payment Submitted
-</h1>
-
-<p>
-Please send your receipt to:
-@the_readers
-</p>
-
-<button onclick="discord()">
-Open Discord
-</button>
-
-</div>
-
-<script>
-
 function discord(){
 
 window.open(
 "https://discord.com/users/the_readers"
 );
+
+}
+
+function home(){
+
+window.location.href =
+"index.html";
 
 }
 
