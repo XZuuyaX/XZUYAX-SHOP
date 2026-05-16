@@ -3,16 +3,40 @@
 
 <head>
 
-<title>Store</title>
+<title>
+SHOP
+</title>
 
 <link rel="stylesheet"
 href="style.css">
 
 </head>
 
+<body>
+
 <audio id="music" autoplay loop>
 <source src="assets/music.mp3">
 </audio>
+
+<div class="card">
+
+<h1>
+Permanent Key
+</h1>
+
+<h2>
+$10
+</h2>
+
+<p>
+Premium Script Access
+</p>
+
+<button onclick="buy()">
+Buy
+</button>
+
+</div>
 
 <script>
 
@@ -33,34 +57,7 @@ music.play();
 {once:true}
 );
 
-</script>
-
-<body>
-
-<div class="card">
-
-<h1>
-Permanent Key
-</h1>
-
-<h2>
-$10
-</h2>
-
-<p>
-Payment:
-PayPal / QRIS
-</p>
-
-<button onclick="checkout()">
-Buy
-</button>
-
-</div>
-
-<script>
-
-function checkout(){
+function buy(){
 
 window.location.href =
 "checkout.html";
