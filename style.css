@@ -12,11 +12,11 @@ font-family:'Poppins',sans-serif;
 
 background:
 linear-gradient(
-rgba(6,8,18,.78),
-rgba(6,8,18,.92)
+rgba(6,8,18,.82),
+rgba(6,8,18,.95)
 ),
 
-url("https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2070&auto=format&fit=crop")
+url("https://64.media.tumblr.com/7e646d701b09619cbd7847b65ea580f0/c92dccbad9208578-2e/s1280x1920/016659620b6ed37c4907c9d5ca949bbe6cc362ff.gifv")
 center/cover fixed;
 
 color:white;
@@ -29,11 +29,11 @@ min-height:100vh;
 
 overflow-x:hidden;
 
+padding:20px;
+
 position:relative;
 
 }
-
-/* MAGIC PARTICLES */
 
 body::before{
 
@@ -67,13 +67,11 @@ opacity:1;
 
 }
 
-/* MAIN CARD */
-
 .card,
 .payment-card,
 .success-card{
 
-width:90%;
+width:100%;
 max-width:560px;
 
 padding:40px;
@@ -97,7 +95,7 @@ box-shadow:
 
 text-align:center;
 
-animation:fade .7s ease;
+animation:fade .6s ease;
 
 }
 
@@ -117,7 +115,7 @@ transform:translateY(0);
 
 h1{
 
-font-size:44px;
+font-size:42px;
 font-weight:800;
 
 text-shadow:
@@ -144,8 +142,6 @@ line-height:1.8;
 color:#d8d8d8;
 
 }
-
-/* BUTTON */
 
 button{
 
@@ -187,8 +183,6 @@ scale(1.02);
 
 }
 
-/* INPUT */
-
 input{
 
 margin-top:22px;
@@ -212,8 +206,6 @@ outline:none;
 
 }
 
-/* QR */
-
 .qr{
 
 width:100%;
@@ -227,29 +219,23 @@ box-shadow:
 
 }
 
-/* POPUP */
-
 .popup{
 
 position:fixed;
 
-top:0;
-left:0;
-
-width:100%;
-height:100%;
+inset:0;
 
 background:
-rgba(0,0,0,.7);
+rgba(0,0,0,.65);
 
 display:none;
 
 justify-content:center;
 align-items:center;
 
-z-index:9999;
+z-index:999;
 
-backdrop-filter:blur(5px);
+backdrop-filter:blur(6px);
 
 }
 
@@ -300,23 +286,11 @@ color:#92a4ff;
 
 }
 
-.popup p{
-
-margin-top:15px;
-
-}
-
 .popup-buttons{
 
 display:flex;
 gap:12px;
 
 margin-top:25px;
-
-}
-
-.popup-buttons button{
-
-margin-top:0;
 
 }
