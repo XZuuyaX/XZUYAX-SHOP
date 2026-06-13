@@ -294,3 +294,38 @@ gap:12px;
 margin-top:25px;
 
 }
+
+.subtitle{
+    opacity: .8;
+    margin-bottom: 20px;
+}
+
+.support-box{
+    margin: 20px 0;
+    padding: 18px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+}
+
+.support-box h3{
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.support-box p{
+    margin: 0;
+    line-height: 1.5;
+    opacity: .85;
+}
+
+.discord-btn{
+    width: 100%;
+    margin-top: 15px;
+}
+
+.continue-btn{
+    width: 100%;
+    margin-top: 12px;
+}
