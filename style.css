@@ -329,3 +329,47 @@ margin-top:25px;
     width: 100%;
     margin-top: 12px;
 }
+
+.discord-help{
+
+margin-top:18px;
+
+font-size:13px;
+
+color:#bfc7ff;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+gap:8px;
+
+}
+
+.discord-help a{
+
+display:flex;
+
+align-items:center;
+
+}
+
+.discord-icon{
+
+width:20px;
+height:20px;
+
+transition:.25s ease;
+
+opacity:.9;
+
+}
+
+.discord-icon:hover{
+
+transform:scale(1.15);
+
+opacity:1;
+
+}
