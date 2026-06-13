@@ -3,84 +3,90 @@
 
 <head>
 
-<title>
-XZuyaX HUB
-</title>
+    <title>XZuyaX HUB</title>
 
-<link rel="stylesheet"
-href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<audio id="music" autoplay loop>
-<source src="assets/music.mp3">
-</audio>
+    <audio id="music" autoplay loop>
+        <source src="assets/music.mp3">
+    </audio>
 
-<div class="card">
+    <div class="card">
 
-<h1>
-XZuyaX's HUB
-</h1>
+        <h1>
+            XZuyaX's HUB
+        </h1>
 
-<p>
-SHOP
-</p>
+        <p class="subtitle">
+            Premium Scripts & Services
+        </p>
 
-<p style="margin-top:15px;">
-Need Help?<br>
-Join our Discord Server!
-</p>
+        <div class="support-box">
 
-<button onclick="joinDiscord()">
-💬 Join Discord
-</button>
+            <h3>
+                Community & Support
+            </h3>
 
-<br><br>
+            <p>
+                Need assistance, updates, bug reports, or product support?
+                Join our official Discord community and stay connected.
+            </p>
 
-<button onclick="enter()">
-Click To Continue
-</button>
+            <button class="discord-btn" onclick="joinDiscord()">
+                💬 Join Discord Server
+            </button>
 
-</div>
+        </div>
 
-<script>
+        <button class="continue-btn" onclick="enter()">
+            Continue to Shop
+        </button>
 
-const music =
-document.getElementById(
-"music"
-);
+    </div>
 
-music.volume = 0.4;
+    <script>
 
-document.body.addEventListener(
-"click",
-()=>{
+        const music =
+        document.getElementById(
+            "music"
+        );
 
-music.play();
+        music.volume = 0.4;
 
-},
-{once:true}
-);
+        document.body.addEventListener(
+            "click",
+            () => {
 
-function joinDiscord(){
+                music.play();
 
-window.open(
-"https://discord.gg/X4H7phPu8P",
-"_blank"
-);
+            },
+            {
+                once: true
+            }
+        );
 
-}
+        function joinDiscord() {
 
-function enter(){
+            window.open(
+                "https://discord.gg/X4H7phPu8P",
+                "_blank"
+            );
 
-window.location.href =
-"store.html";
+        }
 
-}
+        function enter() {
 
-</script>
+            window.location.href =
+            "store.html";
+
+        }
+
+    </script>
 
 </body>
+
 </html>
