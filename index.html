@@ -3,90 +3,82 @@
 
 <head>
 
-    <title>XZuyaX HUB</title>
+<title>
+XZuyaX HUB
+</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
 <body>
 
-    <audio id="music" autoplay loop>
-        <source src="assets/music.mp3">
-    </audio>
+<audio id="music" autoplay loop>
+<source src="assets/music.mp3">
+</audio>
 
-    <div class="card">
+<div class="card">
 
-        <h1>
-            XZuyaX's HUB
-        </h1>
+<h1>
+XZuyaX's HUB
+</h1>
 
-        <p>
-            Premium Scripts & Services
-        </p>
+<p>
+Premium Scripts & Services
+</p>
 
-        <button onclick="enter()">
-            Continue to Shop
-        </button>
+<button onclick="enter()">
+Continue to Shop
+</button>
 
-    </div>
+<p class="discord-help">
 
-    <div class="card discord-card">
+Need help? Join our Discord
 
-        <h3>
-            💬 Discord Community
-        </h3>
+<a
+href="https://discord.gg/X4H7phPu8P"
+target="_blank"
+title="Join Discord">
 
-        <p>
-            Need support, updates, announcements,
-            or want to contact us?
-        </p>
+<img
+src="https://cdn.simpleicons.org/discord/FFFFFF"
+alt="Discord"
+class="discord-icon">
 
-        <button onclick="joinDiscord()">
-            Join Discord Server
-        </button>
+</a>
 
-    </div>
+</p>
 
-    <script>
+</div>
 
-        const music =
-        document.getElementById(
-            "music"
-        );
+<script>
 
-        music.volume = 0.4;
+const music =
+document.getElementById(
+"music"
+);
 
-        document.body.addEventListener(
-            "click",
-            () => {
+music.volume = 0.4;
 
-                music.play();
+document.body.addEventListener(
+"click",
+()=>{
 
-            },
-            {
-                once: true
-            }
-        );
+music.play();
 
-        function joinDiscord() {
+},
+{once:true}
+);
 
-            window.open(
-                "https://discord.gg/X4H7phPu8P",
-                "_blank"
-            );
+function enter(){
 
-        }
+window.location.href =
+"store.html";
 
-        function enter() {
+}
 
-            window.location.href =
-            "store.html";
-
-        }
-
-    </script>
+</script>
 
 </body>
-
 </html>
